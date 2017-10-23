@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
+        <title>Froot Wars</title>
+        <script src="js/Box2d.min.js" type="text/javascript"></script>
+        <script src="js/wAudio.js" type="text/javascript"></script>
+        <script src="js/game.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="styles.css" type="text/css" media="screen">
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <div id="gamecontainer">
+
+                <canvas id="gamecanvas" width="640" height="480" class="gamelayer">
+                </canvas>
+
+                <div id="scorescreen" class="gamelayer">
+                    <img id="togglemusic" src="images/icons/sound.png" alt="Toggle Music" onclick="game.toggleBackgroundMusic()">
+                    <img src="images/icons/prev.png" alt="Restart Level" onclick="game.restartLevel()">
+                    <span id="score">Score: 0</span>
+                </div>
+
+                <div id="endingscreen" class="gamelayer">
+                    <div>
+                        <p id="endingmessage">The Level Is Over Message</p>
+                        <p id="playcurrentlevel" class="endingoption" alt="Replay" onclick="game.restartLevel()"><img src="images/icons/prev.png">Replay Current Level</p>
+                        <p id="playnextlevel" class="endingoption" alt="Next" onclick="game.startNextLevel()"><img src="images/icons/next.png">Play Next Level</p>
+                        <p id="returntolevelscreen" class="endingoption" alt="Return" onclick="game.showLevelScreen()"><img src="images/icons/return.png">Return to Level Screen</p>
+                    </div>
+                </div>
+
+                <div id="gamestartscreen" class="gamelayer">
+                    <img src="images/icons/play.png" alt="Play Game" onclick="game.playGame()"><br>
+                    <img src="images/icons/settings.png" alt="Settings">
+                </div>
+
+                <div id="levelselectscreen" class="gamelayer">
+                </div>
+
+                <div id="loadingscreen" class="gamelayer">
+                    <div id="loadingmessage"></div>
+                </div>
+
+
+            </div>
+        </div>
+    </body>
+</html>

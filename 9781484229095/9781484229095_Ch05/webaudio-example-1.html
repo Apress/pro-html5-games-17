@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Webaudio Example 1</title>
+    </head>
+    <body>
+        <script>
+            // Some browsers support AudioContext, while others support webkitAudioContext
+            var context = new (window.AudioContext || window.webkitAudioContext)();
+
+            // An oscillator source node just plays a sound at a specific frequency
+            var oscillatorNode = context.createOscillator();
+
+            // Connect the oscillator directly to the destination
+            oscillatorNode.connect(context.destination);
+
+            // Start the oscillator now (at the current time)
+            oscillatorNode.start(context.currentTime);
+
+            // And stop it two seconds after the current time
+            oscillatorNode.stop(context.currentTime + 2);
+        </script>
+    </body>
+</html>

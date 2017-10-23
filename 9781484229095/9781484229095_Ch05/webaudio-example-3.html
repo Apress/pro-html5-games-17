@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Webaudio Example 3</title>
+    </head>
+    <body>
+        <script>
+            // Initialize the audio context
+            var context = new (window.AudioContext || window.webkitAudioContext)();
+
+            // Load the audio file using an XMLHttpRequest
+            var request = new XMLHttpRequest();
+            request.open("GET", "audio/bounce.ogg", true);
+            request.responseType = "arraybuffer";
+
+            // Wait for the request to load the audio file
+            request.onload = function() {
+                 // Once the audio file has loaded, decode it
+                var undecodedAudio = request.response;
+                context.decodeAudioData(undecodedAudio, function (decodedAudioBuffer) {
+                    // Once the audio has been decoded create a buffer source
+                    var bufferSourceNode = context.createBufferSource();
+
+                    // Tell the buffer source node to use the decoded audio buffer
+                    bufferSourceNode.buffer = decodedAudioBuffer;
+
+                    // Connect the buffer source node to the destination
+                    bufferSourceNode.connect(context.destination);
+
+                    // Start playing the buffer source node now
+                    bufferSourceNode.start(context.currentTime);
+                });
+            };
+
+            // Finally initate the request
+            request.send();
+
+        </script>
+    </body>
+</html>

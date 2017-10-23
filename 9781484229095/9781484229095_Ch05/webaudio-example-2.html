@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Webaudio Example 2</title>
+    </head>
+    <body>
+        <script>
+            // Initialize the audio context
+            var context = new (window.AudioContext || window.webkitAudioContext)();
+
+            // An oscillator source node just plays a sound at a specific frequency
+            var oscillatorNode = context.createOscillator();
+
+            // A gain node controls the volume
+            var gainNode  = context.createGain();
+
+            // Set the volume to 1/5th of the original volume
+            gainNode.gain.value = 0.2;
+
+            // Connect the oscillator to the gain node
+            oscillatorNode.connect(gainNode);
+
+            // Connect the gain node to the destination
+            gainNode.connect(context.destination);
+
+            // Start the oscillator now (at the current time)
+            oscillatorNode.start(context.currentTime);
+
+            // And stop it two seconds after the current time
+            oscillatorNode.stop(context.currentTime + 2);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Websocket Client</title>
+        <meta charset="UTF-8">
+        <script type="text/javascript">
+            var websocket;
+            var serverUrl = "ws://localhost:8080";
+
+            function displayMessage(message) {
+                document.getElementById("display").value += message + "\n";
+            }
+
+            function initWebSocket() {
+
+                // Make sure the browser supports WebSocket
+                if (!window.WebSocket) {
+                    displayMessage("Your browser does not support WebSockets");
+                    return;
+                }
+
+                // Instantiate a new websocket object with the server url
+                websocket = new WebSocket(serverUrl);
+
+                // Set handler for when the socket connection is opened
+                websocket.addEventListener("open", function() {
+                    displayMessage("WebSocket connection opened");
+                    document.getElementById("sendmessage").disabled = false;
+                });
+
+                // Set handler for when the socket connection is closed
+                websocket.addEventListener("close", function() {
+                    displayMessage("WebSocket connection closed");
+                    document.getElementById("sendmessage").disabled = true;
+                });
+
+                // Set handler for when a socket connection error occurs
+                websocket.addEventListener("error", function() {
+                    displayMessage("WebSocket connection error");
+                    document.getElementById("sendmessage").disabled = true;
+                });
+
+                // Set handler for when the socket receives a message
+                websocket.addEventListener("message", function(message) {
+                    displayMessage("Received Message: \"" + message.data + "\"");
+                });
+            }
+
+            function sendMessage() {
+
+                if (websocket.readyState === WebSocket.OPEN) {
+                    var message = document.getElementById("message").value;
+
+                    displayMessage("Sending Message: \"" + message + "\"");
+                    websocket.send(message);
+                } else {
+                    displayMessage("Cannot send message. The WebSocket connection is not open.");
+                    document.getElementById("sendmessage").disabled = true;
+                }
+            }
+
+        </script>
+    </head>
+    <body onload="initWebSocket()">
+        <p>
+            <input type="text" placeholder="Enter Message Here" size="40" id="message">
+            <input type="button" value="Send" id="sendmessage" onclick="sendMessage()" disabled="true">
+        </p>
+        <p>
+            <textarea rows="10" cols="80" id="display"></textarea>
+        </p>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "last-colony-server",
+  "version": "1.0.0",
+  "description": "Multiplayer Server for Last Colony",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Aditya Ravi Shankar",
+  "license": "MIT",
+  "dependencies": {
+    "websocket": "^1.0.24"
+  }
+}

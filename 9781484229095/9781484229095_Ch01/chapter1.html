@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <title>Sample HTML5 File</title>
+        <script type="text/javascript">
+            // This function will be called once the page loads completely
+            function pageLoaded() {
+
+                // Get a handle to the canvas object
+                var canvas = document.getElementById("testcanvas");
+
+                // Get the 2d context for this canvas
+                var context = canvas.getContext("2d");
+
+                // Our drawing code here…
+
+                // FILLED RECTANGLES
+                // Draw a solid square with width and height of 100 pixels at (200, 10)
+                context.fillRect(200, 10, 100, 100);
+                // Draw a solid square with width of 90 pixels and height of 30 pixels at (50, 70)
+                context.fillRect(50, 70, 90, 30);
+
+                // STROKED RECTANGLES
+                // Draw a rectangular outline of width and height 50 pixels at (110, 10)
+                context.strokeRect(110, 10, 50, 50);
+                // Draw a rectangular outline of width and height 50 pixels at (30, 10)
+                context.strokeRect(30, 10, 50, 50);
+
+                // CLEARING RECTANGLES
+                // Clear a rectangle of width of 30 pixels and height 20 pixels at (210, 20)
+                context.clearRect(210, 20, 30, 20);
+                // Clear a rectangle of width 30 and height 20 pixels at (260, 20)
+                context.clearRect(260, 20, 30, 20);
+
+
+                // DRAWING COMPLEX SHAPES
+                // Draw a filled triangle
+                context.beginPath();
+                context.moveTo(10, 120);    // Start drawing at 10, 120
+                context.lineTo(10, 180);
+                context.lineTo(110, 150);
+                context.fill();    // close the shape and fill it out
+
+                // Draw a stroked triangle
+                context.beginPath();
+                context.moveTo(140, 160); // Start drawing at 140, 160
+                context.lineTo(140, 220);
+                context.lineTo(40, 190);
+                context.closePath();
+                context.stroke();
+
+                // Draw a more complex set of lines
+                context.beginPath();
+                context.moveTo(160, 160); // Start drawing at 160, 160
+                context.lineTo(170, 220);
+                context.lineTo(240, 210);
+                context.lineTo(260, 170);
+                context.lineTo(190, 140);
+                context.closePath();
+                context.stroke();
+
+                // DRAWING ARCS & CIRCLES
+                // Drawing a semicircle
+                context.beginPath();
+                // Draw an arc at (400, 50) with radius 40 from 0 to 180 degrees, anticlockwise
+                // PI radians = 180 degrees
+                context.arc(100, 300, 40, 0, Math.PI, true);
+                context.stroke();
+
+                // Drawing a full circle
+                context.beginPath();
+                // Draw an arc at (500, 50) with radius 30 from 0 to 360 degrees, anticlockwise
+                // 2*PI radians = 360 degrees
+                context.arc(100, 300, 30, 0, 2 * Math.PI, true);
+                context.fill();
+
+                // Drawing a three-quarter arc
+                context.beginPath();
+                // Draw an arc at (400, 100) with radius 25 from 0 to 270 degrees, clockwise
+                // (3/2*PI radians = 270 degrees)
+                context.arc(200, 300, 25, 0, 3 / 2 * Math.PI, false);
+                context.stroke();
+
+                // DRAWING TEXT
+                context.fillText("This is some text...", 330, 40);
+
+                // Modifying the font
+                context.font = "10pt Arial";
+                context.fillText("This is in 10pt Arial...", 330, 60);
+
+                // Drawing stroked text
+                context.font = "16pt Arial";
+                context.strokeText("This is stroked in 16pt Arial...", 330, 80);
+
+                // FILL STYLES AND COLORS
+                // Set fill color to red
+                context.fillStyle = "red";
+                // Draw a red filled rectangle
+                context.fillRect(310, 160, 100, 50);
+
+                // Set stroke color to green
+                context.strokeStyle = "green";
+                // Draw a green stroked rectangle
+                context.strokeRect(310, 240, 100, 50);
+
+                // Set fill color to yellow using rgb()
+                context.fillStyle = "rgb(255, 255, 0)";
+                // Draw a yellow filled rectangle
+                context.fillRect(420, 160, 100, 50);
+
+                // Set fill color to green with an alpha of 0.6
+                context.fillStyle = "rgba(0, 255, 0, 0.6)";
+                // Draw a semi-transparent green filled rectangle
+                context.fillRect(450, 180, 100, 50);
+
+                // TEXTURES
+                // Get a handle to the image object
+                var fireImage = document.getElementById("fire");
+                var pattern = context.createPattern(fireImage, "repeat");
+
+                // Set fill style to newly created pattern
+                context.fillStyle = pattern;
+                // Draw a pattern filled rectangle
+                context.fillRect(420, 240, 130, 50);
+
+
+                // DRAWING IMAGES
+                // Get a handle to the image object
+                var image = document.getElementById("spaceship");
+
+                // Draw the image at (0, 350)
+                context.drawImage(image, 0, 350);
+
+                // Scaling the image to half the original size
+                context.drawImage(image, 0, 400, 100, 25);
+
+                // Drawing part of the image
+                context.drawImage(image, 0, 0, 60, 50, 0, 420, 60, 50);
+
+                // ROTATION AND TRANSLATION
+                //Translate origin to location of object
+                context.translate(250, 370);
+                //Rotate about the new origin by 60 degrees
+                context.rotate(Math.PI / 3);
+                context.drawImage(image, 0, 0, 60, 50, -30, -25, 60, 50);
+                //Restore to original state by rotating and translating back
+                context.rotate(-Math.PI / 3);
+                context.translate(-240, -370);
+
+                //Translate origin to location of object
+                context.translate(300, 370);
+                //Rotate about the new origin
+                context.rotate(3 * Math.PI / 4);
+                context.drawImage(image, 0, 0, 60, 50, -30, -25, 60, 50);
+                //Restore to original state by rotating and translating back
+                context.rotate(-3 * Math.PI / 4);
+                context.translate(-300, -370);
+
+            }
+        </script>
+
+        <script>
+            //Create a new Audio object
+            var sound = new Audio();
+
+            // Select the source of the sound
+            sound.src = "music.ogg";
+            // This will only work on browsers that support OGG
+
+            // Play the sound
+            // sound.play();
+        </script>
+
+        <script>
+            var audio = document.createElement("audio");
+            var mp3Support, oggSupport;
+
+            if (audio.canPlayType) {
+                // Currently canPlayType() returns: "", "maybe", or "probably"
+                mp3Support = "" !== audio.canPlayType("audio/mpeg");
+                oggSupport = "" !== audio.canPlayType("audio/ogg; codecs=\"vorbis\"");
+            } else {
+                //The audio tag is not supported
+                mp3Support = false;
+                oggSupport = false;
+            }
+
+            // Check for ogg, then mp3, and finally set soundFileExtn to undefined
+            var soundFileExtn = oggSupport ? ".ogg" : mp3Support ? ".mp3" : undefined;
+
+            if (soundFileExtn) {
+                var sound = new Audio();
+                // Load sound file with the detected extension
+
+                sound.src = "music" + soundFileExtn;
+                sound.play();
+            }
+        </script>
+
+        <script>
+            // Play the sound after waiting for it to load
+            if (soundFileExtn) {
+                var sound = new Audio();
+
+                sound.addEventListener("canplaythrough", function() {
+                    sound.play();
+                });
+
+                // Load sound file with the detected extension
+                sound.src = "music" + soundFileExtn;
+            }
+        </script>
+
+    </head>
+    <body onload="pageLoaded();">
+        <canvas width="640" height="480" id="testcanvas" style="border: 1px solid black;">
+            Your browser does not support HTML5 Canvas. Please shift to a newer browser.
+        </canvas>
+        <br>
+        <img src="spaceship.png" id="spaceship">
+        <br>
+        <img src="fire.png" id="fire">
+        <br>
+        <audio src="music.mp3" controls="controls">
+            Your browser does not support HTML5 Audio. Please shift to a newer browser.
+        </audio>
+        <br>
+        <audio controls="controls">
+            <source src="music.ogg" type="audio/ogg" />
+            <source src="music.mp3" type="audio/mpeg" />
+            Your browser does not support HTML5 Audio. Please shift to a newer browser.
+        </audio>
+    </body>
+</html>

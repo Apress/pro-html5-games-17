@@ -1,0 +1,14 @@
+{
+  "name": "websocket-demo",
+  "version": "1.0.0",
+  "description": "A simple WebSocket server demo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Aditya Ravi Shankar",
+  "license": "MIT",
+  "dependencies": {
+    "websocket": "^1.0.24"
+  }
+}

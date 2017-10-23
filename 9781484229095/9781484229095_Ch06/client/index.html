@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+        <title>Last Colony</title>
+
+        <script src="js/common.js" type="text/javascript"></script>
+        <script src="js/game.js" type="text/javascript"></script>
+        <script src="js/mouse.js" type="text/javascript"></script>
+        <script src="js/singleplayer.js" type="text/javascript"></script>
+        <script src="js/levels.js" type="text/javascript"></script>
+
+        <link rel="stylesheet" href="styles.css" type="text/css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="gamecontainer">
+                <div id="gamestartscreen" class="gamelayer">
+                    <span class="game-title">LAST<br>COLONY</span>
+                    <span class="game-option" onclick = "singleplayer.start();">Campaign</span>
+                    <span class="game-option" onclick = "multiplayer.start();">Multiplayer</span>
+                </div>
+
+                <div id="missionbriefingscreen" class="gamelayer">
+                    <img src="images/screens/interface-left.png" class="left-panel" draggable="false">
+                    <img src="images/screens/interface-right-briefing.png" class="right-panel" draggable="false">
+                    <input type="button" id="entermission" onclick = "singleplayer.play();">
+                    <input type="button" id="exitmission" onclick = "singleplayer.exit();">
+                    <div id="missionbriefing"></div>
+                </div>
+
+                <div id="gameinterfacescreen" class="gamelayer">
+                    <img src="images/screens/interface-left.png" class="left-panel" draggable="false">
+                    <img src="images/screens/interface-right-game.png" class="right-panel" draggable="false">
+                    <div id="gamemessages"></div>
+                    <div id="callerpicture"></div>
+                    <div id="cash"></div>
+                    <div id="sidebarbuttons">
+                    </div>
+                    <canvas id="gamebackgroundcanvas"></canvas>
+                    <canvas id="gameforegroundcanvas"></canvas>
+                </div>
+
+                <div id="loadingscreen" class="gamelayer">
+                    <div id="loadingmessage"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

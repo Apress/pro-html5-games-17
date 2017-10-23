@@ -1,0 +1,100 @@
+body {
+    background: #000900;
+
+    /* Prevent the ugly blue highlighting from accidental selection of text */
+    user-select: none;
+}
+
+#wrapper {
+    position: absolute;
+}
+
+#gamecontainer {
+
+    /* Set game container width, height and background */
+    width: 640px;
+    height: 480px;
+    background: url("images/splashscreen.png");
+}
+
+.gamelayer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: none;
+}
+
+/* Game Starting Menu Screen */
+
+#gamestartscreen {
+    padding-top: 250px;
+    text-align: center;
+}
+
+#gamestartscreen img {
+    margin: 10px;
+    cursor: pointer;
+}
+
+/* Level Selection Screen */
+
+#levelselectscreen {
+    padding-top: 150px;
+    padding-left: 50px;
+}
+
+#levelselectscreen input {
+    margin: 20px;
+    cursor: pointer;
+
+    background: url("images/icons/level.png") no-repeat;
+    color: yellow;
+    font-size: 20px;
+
+    width: 64px;
+    height: 64px;
+
+    border: 0;
+
+    /* Remove the default blue border when an input is selected */
+    outline: 0;
+}
+
+/* Loading Screen */
+
+#loadingscreen {
+    background: rgba(100, 100, 100, 0.5);
+}
+
+#loadingmessage {
+    margin-top: 400px;
+    text-align: center;
+    height: 48px;
+    color: white;
+    background: url("images/loader.gif") no-repeat center;
+    font: 12px Arial;
+}
+
+/* Score Screen */
+
+#scorescreen {
+    height: 60px;
+    font: 32px "Comic Sans MS";
+    text-shadow: 0 0 2px black;
+    color: white;
+}
+
+#scorescreen img {
+    opacity: 0.6;
+    top: 5%;
+    left: 5%;
+    position: relative;
+    padding: 8px;
+    cursor: pointer;
+}
+
+#score {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
