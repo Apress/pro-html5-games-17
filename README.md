@@ -1,6 +1,6 @@
 # Apress Source Code
 
-This repository accompanies [*Pro HTML5 Games*](http://www.apress.com/9781484229095) by Aditya Ravi Shankar (Apress, ).
+This repository accompanies [*Pro HTML5 Games*](http://www.apress.com/9781484229095) by Aditya Ravi Shankar (Apress, 2017).
 
 [comment]: #cover
 ![Cover image](9781484229095.jpg)

@@ -1,6 +1,6 @@
 Freeware License, some rights reserved
 
-Copyright (c)  Aditya Ravi Shankar
+Copyright (c) 2017 Aditya Ravi Shankar
 
 Permission is hereby granted, free of charge, to anyone obtaining a copy 
 of this software and associated documentation files (the "Software"), 
