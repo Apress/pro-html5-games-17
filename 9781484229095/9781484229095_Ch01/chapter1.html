@@ -63,21 +63,21 @@
                 // DRAWING ARCS & CIRCLES
                 // Drawing a semicircle
                 context.beginPath();
-                // Draw an arc at (400, 50) with radius 40 from 0 to 180 degrees, anticlockwise
+                // Draw an arc at (100, 300) with radius 40 from 0 to 180 degrees, anticlockwise
                 // PI radians = 180 degrees
                 context.arc(100, 300, 40, 0, Math.PI, true);
                 context.stroke();
 
                 // Drawing a full circle
                 context.beginPath();
-                // Draw an arc at (500, 50) with radius 30 from 0 to 360 degrees, anticlockwise
+                // Draw an arc at (100, 300) with radius 30 from 0 to 360 degrees, anticlockwise
                 // 2*PI radians = 360 degrees
                 context.arc(100, 300, 30, 0, 2 * Math.PI, true);
                 context.fill();
 
                 // Drawing a three-quarter arc
                 context.beginPath();
-                // Draw an arc at (400, 100) with radius 25 from 0 to 270 degrees, clockwise
+                // Draw an arc at (200, 300) with radius 25 from 0 to 270 degrees, clockwise
                 // (3/2*PI radians = 270 degrees)
                 context.arc(200, 300, 25, 0, 3 / 2 * Math.PI, false);
                 context.stroke();
